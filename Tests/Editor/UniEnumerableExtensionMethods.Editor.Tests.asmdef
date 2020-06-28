@@ -1,0 +1,17 @@
+{
+    "name": "UniEnumerableExtensionMethods.Editor.Tests",
+    "references": [
+        "GUID:1e9d1e2e10e566a4c8666ab2237a80b5"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
