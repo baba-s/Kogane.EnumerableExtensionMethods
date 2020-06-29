@@ -27,7 +27,7 @@ namespace Kogane
 		/// </summary>
 		public static void ForEach<T>( this IReadOnlyList<T> self, Action<T> action )
 		{
-			for ( var i = 0; i < self.Count; i++ ) 
+			for ( var i = 0; i < self.Count; i++ )
 			{
 				action( self[ i ] );
 			}
@@ -38,7 +38,7 @@ namespace Kogane
 		/// </summary>
 		public static void ForEach<T>( this IReadOnlyList<T> self, Action<T, int> action )
 		{
-			for ( var i = 0; i < self.Count; i++ ) 
+			for ( var i = 0; i < self.Count; i++ )
 			{
 				action( self[ i ], i );
 			}
@@ -99,6 +99,41 @@ namespace Kogane
 		public static bool IsNotNullOrEmpty<T>( this IReadOnlyList<T> self )
 		{
 			return !self.IsNullOrEmpty();
+		}
+
+		//================================================================================
+		// FindMin, FindMax
+		//================================================================================
+		/// <summary>
+		/// int 値の最小値を持つ要素を返します
+		/// </summary>
+		public static T FindMin<T>( this IReadOnlyList<T> self, Func<T, int> selector )
+		{
+			return self.Find( c => selector( c ) == self.Min( selector ) );
+		}
+
+		/// <summary>
+		/// uint 値の最小値を持つ要素を返します
+		/// </summary>
+		public static T FindMin<T>( this IReadOnlyList<T> self, Func<T, uint> selector )
+		{
+			return self.Find( c => selector( c ) == self.Min( selector ) );
+		}
+
+		/// <summary>
+		/// int 値の最大値を持つ要素を返します
+		/// </summary>
+		public static T FindMax<T>( this IReadOnlyList<T> self, Func<T, int> selector )
+		{
+			return self.Find( c => selector( c ) == self.Max( selector ) );
+		}
+
+		/// <summary>
+		/// uint 値の最大値を持つ要素を返します
+		/// </summary>
+		public static T FindMax<T>( this IReadOnlyList<T> self, Func<T, uint> selector )
+		{
+			return self.Find( c => selector( c ) == self.Max( selector ) );
 		}
 	}
 }
