@@ -3,23 +3,26 @@ using System.Collections.Generic;
 
 namespace Kogane
 {
-	internal sealed class CompareSelector<T, TKey> : IEqualityComparer<T>
+	public static partial class LINQExtensionMethods
 	{
-		private readonly Func<T, TKey> m_selector;
-		
-		public CompareSelector( Func<T, TKey> selector )
+		private sealed class CompareSelector<T, TKey> : IEqualityComparer<T>
 		{
-			m_selector = selector;
-		}
-		
-		public bool Equals( T x, T y )
-		{
-			return m_selector( x ).Equals( m_selector( y ) );
-		}
-		
-		public int GetHashCode( T obj )
-		{
-			return m_selector( obj ).GetHashCode();
+			private readonly Func<T, TKey> m_selector;
+
+			public CompareSelector( Func<T, TKey> selector )
+			{
+				m_selector = selector;
+			}
+
+			public bool Equals( T x, T y )
+			{
+				return m_selector( x ).Equals( m_selector( y ) );
+			}
+
+			public int GetHashCode( T obj )
+			{
+				return m_selector( obj ).GetHashCode();
+			}
 		}
 	}
 }
