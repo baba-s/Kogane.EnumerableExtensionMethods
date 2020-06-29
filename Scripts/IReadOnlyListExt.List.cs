@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace Kogane
 {
 	/// <summary>
-	/// IEnumerable 型の拡張メソッドを管理するクラス
+	/// IReadOnlyList 型の拡張メソッドを管理するクラス
 	/// </summary>
 	public static partial class LINQExtensionMethods
 	{
