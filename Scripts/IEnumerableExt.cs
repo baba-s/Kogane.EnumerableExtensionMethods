@@ -124,7 +124,12 @@ namespace Kogane
 		/// <summary>
 		/// 指定されたページに存在する要素を返します
 		/// </summary>
-		public static IEnumerable<T> Pager<T>( this IEnumerable<T> self, int pageIndex, int pageCount )
+		public static IEnumerable<T> Pager<T>
+		(
+			this IEnumerable<T> self,
+			int                 pageIndex,
+			int                 pageCount
+		)
 		{
 			return self.Skip( pageIndex * pageCount ).Take( pageCount );
 		}
@@ -178,7 +183,12 @@ namespace Kogane
 		/// <summary>
 		/// 指定した要素がシーケンスに格納されているかどうかを調べます
 		/// </summary>
-		public static bool Contains<T, TKey>( this IEnumerable<T> self, T value, Func<T, TKey> selector )
+		public static bool Contains<T, TKey>
+		(
+			this IEnumerable<T> self,
+			T                   value,
+			Func<T, TKey>       selector
+		)
 		{
 			return self.Contains( value, new CompareSelector<T, TKey>( selector ) );
 		}
@@ -194,7 +204,12 @@ namespace Kogane
 		/// <summary>
 		/// 2 つのシーケンスの差集合を生成します
 		/// </summary>
-		public static IEnumerable<T> Except<T, TKey>( this IEnumerable<T> self, IEnumerable<T> second, Func<T, TKey> selector )
+		public static IEnumerable<T> Except<T, TKey>
+		(
+			this IEnumerable<T> self,
+			IEnumerable<T>      second,
+			Func<T, TKey>       selector
+		)
 		{
 			return self.Except( second, new CompareSelector<T, TKey>( selector ) );
 		}
@@ -202,7 +217,12 @@ namespace Kogane
 		/// <summary>
 		/// 2 つのシーケンスの積集合を生成します
 		/// </summary>
-		public static IEnumerable<T> Intersect<T, TKey>( this IEnumerable<T> source, IEnumerable<T> second, Func<T, TKey> selector )
+		public static IEnumerable<T> Intersect<T, TKey>
+		(
+			this IEnumerable<T> source,
+			IEnumerable<T>      second,
+			Func<T, TKey>       selector
+		)
 		{
 			return source.Intersect( second, new CompareSelector<T, TKey>( selector ) );
 		}
@@ -210,7 +230,12 @@ namespace Kogane
 		/// <summary>
 		/// 等値比較子に従って 2 つのシーケンスが等しいかどうかを判断します
 		/// </summary>
-		public static bool SequenceEqual<T, TKey>( this IEnumerable<T> self, IEnumerable<T> second, Func<T, TKey> selector )
+		public static bool SequenceEqual<T, TKey>
+		(
+			this IEnumerable<T> self,
+			IEnumerable<T>      second,
+			Func<T, TKey>       selector
+		)
 		{
 			return self.SequenceEqual( second, new CompareSelector<T, TKey>( selector ) );
 		}
@@ -218,7 +243,12 @@ namespace Kogane
 		/// <summary>
 		/// 2 つのシーケンスの和集合を生成します
 		/// </summary>
-		public static IEnumerable<T> Union<T, TKey>( this IEnumerable<T> source, IEnumerable<T> second, Func<T, TKey> selector )
+		public static IEnumerable<T> Union<T, TKey>
+		(
+			this IEnumerable<T> source,
+			IEnumerable<T>      second,
+			Func<T, TKey>       selector
+		)
 		{
 			return source.Union( second, new CompareSelector<T, TKey>( selector ) );
 		}
@@ -254,7 +284,7 @@ namespace Kogane
 		{
 			return self.Concat( new[] { second } );
 		}
-		
+
 		//================================================================================
 		// RandomAtWeight
 		//================================================================================
