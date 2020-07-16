@@ -7,7 +7,7 @@ namespace Kogane
 	/// IReadOnlyList 型の拡張メソッド
 	/// このスクリプトでは LINQ の同名の拡張メソッドを定義することで GC Alloc を削減することが目的
 	/// </remarks>
-	public static partial class LINQExtensionMethods
+	public static partial class EnumerableExtensionMethods
 	{
 		//================================================================================
 		// ElementAt

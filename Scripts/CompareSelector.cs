@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Kogane
 {
-	public static partial class LINQExtensionMethods
+	public static partial class EnumerableExtensionMethods
 	{
 		private sealed class CompareSelector<T, TKey> : IEqualityComparer<T>
 		{

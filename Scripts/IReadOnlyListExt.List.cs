@@ -7,7 +7,7 @@ namespace Kogane
 	/// IReadOnlyList 型の拡張メソッド
 	/// このスクリプトでは List 型の読み取り専用の機能を呼び出せるようにした拡張メソッドを定義
 	/// </remarks>
-	public static partial class LINQExtensionMethods
+	public static partial class EnumerableExtensionMethods
 	{
 		//================================================================================
 		// 関数(static)

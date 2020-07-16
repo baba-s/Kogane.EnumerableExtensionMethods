@@ -8,7 +8,7 @@ namespace Kogane
 	/// IEnumerable 型の拡張メソッド
 	/// このスクリプトでは Nearest 系の拡張メソッドを定義
 	/// </remarks>
-	public static partial class LINQExtensionMethods
+	public static partial class EnumerableExtensionMethods
 	{
 		//================================================================================
 		// Nearest

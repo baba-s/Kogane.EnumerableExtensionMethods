@@ -8,7 +8,7 @@ namespace Kogane
 	/// IEnumerable 型の拡張メソッド
 	/// このスクリプトでは IEnumerable 型でよく使う独自の拡張メソッドを定義
 	/// </remarks>
-	public static partial class LINQExtensionMethods
+	public static partial class EnumerableExtensionMethods
 	{
 		//================================================================================
 		// 変数(static readonly)

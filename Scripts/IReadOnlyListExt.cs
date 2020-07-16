@@ -7,7 +7,7 @@ namespace Kogane
 	/// IReadOnlyList 型の拡張メソッド
 	/// このスクリプトではIReadOnlyList 型でよく使う独自の拡張メソッドを定義
 	/// </remarks>
-	public static partial class LINQExtensionMethods
+	public static partial class EnumerableExtensionMethods
 	{
 		//================================================================================
 		// ElementAtRandom

@@ -7,7 +7,7 @@ namespace Kogane
 	/// 配列の拡張メソッド
 	/// このスクリプトでは Array クラスの static 関数を拡張メソッドで呼び出せるようにしたものを定義
 	/// </remarks>
-	public static partial class LINQExtensionMethods
+	public static partial class EnumerableExtensionMethods
 	{
 		//================================================================================
 		// 関数(static)

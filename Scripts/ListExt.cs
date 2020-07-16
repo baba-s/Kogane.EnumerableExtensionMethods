@@ -7,7 +7,7 @@ namespace Kogane
 	/// List 型の拡張メソッド
 	/// このスクリプトでは List 型でよく使う独自の拡張メソッドを定義
 	/// </remarks>
-	public static partial class LINQExtensionMethods
+	public static partial class EnumerableExtensionMethods
 	{
 		//================================================================================
 		// 関数(static)

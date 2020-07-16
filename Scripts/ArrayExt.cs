@@ -6,7 +6,7 @@ namespace Kogane
 	/// 配列の拡張メソッド
 	/// このスクリプトでは配列でよく使う独自の拡張メソッドを定義
 	/// </remarks>
-	public static partial class LINQExtensionMethods
+	public static partial class EnumerableExtensionMethods
 	{
 		//================================================================================
 		// 関数(static)
