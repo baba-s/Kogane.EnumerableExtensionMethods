@@ -3,9 +3,10 @@ using System.Collections.Generic;
 
 namespace Kogane
 {
-	/// <summary>
-	/// IReadOnlyList 型の拡張メソッドを管理するクラス
-	/// </summary>
+	/// <remarks>
+	/// IReadOnlyList 型の拡張メソッド
+	/// このスクリプトでは List 型の読み取り専用の機能を呼び出せるようにした拡張メソッドを定義
+	/// </remarks>
 	public static partial class LINQExtensionMethods
 	{
 		//================================================================================

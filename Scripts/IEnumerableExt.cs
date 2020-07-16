@@ -4,9 +4,10 @@ using System.Linq;
 
 namespace Kogane
 {
-	/// <summary>
-	/// IEnumerable 型の拡張メソッドを管理するクラス
-	/// </summary>
+	/// <remarks>
+	/// IEnumerable 型の拡張メソッド
+	/// このスクリプトでは IEnumerable 型でよく使う独自の拡張メソッドを定義
+	/// </remarks>
 	public static partial class LINQExtensionMethods
 	{
 		//================================================================================

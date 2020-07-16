@@ -4,19 +4,18 @@ using System.Linq;
 
 namespace Kogane
 {
-	/// <summary>
-	/// IEnumerable 型の拡張メソッドを管理するクラス
-	/// </summary>
+	/// <remarks>
+	/// IEnumerable 型の拡張メソッド
+	/// このスクリプトでは Nearest 系の拡張メソッドを定義
+	/// </remarks>
 	public static partial class LINQExtensionMethods
 	{
 		//================================================================================
 		// Nearest
 		//================================================================================
 		/// <summary>
-		/// 目的の値に最も近い値を返します。見つからなかった場合は例外を投げます。
+		/// 目的の値に最も近い値を返します。見つからなかった場合は例外を投げます
 		/// </summary>
-		/// <param name="target">目的の値</param>
-		/// <returns>目的の値に最も近い値</returns>
 		public static int Nearest
 		(
 			this IEnumerable<int> self,
@@ -29,12 +28,8 @@ namespace Kogane
 		}
 
 		/// <summary>
-		/// 目的の値に最も近い値を返します。見つからなかった場合は例外を投げます。
+		/// 目的の値に最も近い値を返します。見つからなかった場合は例外を投げます
 		/// </summary>
-		/// <typeparam name="TSource">要素の型</typeparam>
-		/// <param name="target">目的の値</param>
-		/// <param name="selector">選択関数</param>
-		/// <returns>目的の値に最も近い値</returns>
 		public static int Nearest<TSource>
 		(
 			this IEnumerable<TSource> self,
@@ -51,12 +46,8 @@ namespace Kogane
 		// FindNearest
 		//================================================================================
 		/// <summary>
-		/// 目的の値に最も近い値を持つ要素を返します。見つからなかった場合は例外を投げます。
+		/// 目的の値に最も近い値を持つ要素を返します。見つからなかった場合は例外を投げます
 		/// </summary>
-		/// <typeparam name="TSource">要素の型</typeparam>
-		/// <param name="target">目的の値</param>
-		/// <param name="selector">選択関数</param>
-		/// <returns>目的の値に最も近い要素</returns>
 		public static TSource FindNearest<TSource>
 		(
 			this IEnumerable<TSource> self,
@@ -73,10 +64,8 @@ namespace Kogane
 		// NearestOrDefault
 		//================================================================================
 		/// <summary>
-		/// 目的の値に最も近い値を返します。見つからなかった場合は null を返します。
+		/// 目的の値に最も近い値を返します。見つからなかった場合は null を返します
 		/// </summary>
-		/// <param name="target">目的の値</param>
-		/// <returns>目的の値に最も近い値</returns>
 		public static int NearestOrDefault
 		(
 			this IEnumerable<int> self,
@@ -89,12 +78,8 @@ namespace Kogane
 		}
 
 		/// <summary>
-		/// 目的の値に最も近い値を返します。見つからなかった場合は null を返します。
+		/// 目的の値に最も近い値を返します。見つからなかった場合は null を返します
 		/// </summary>
-		/// <typeparam name="TSource">要素の型</typeparam>
-		/// <param name="target">目的の値</param>
-		/// <param name="selector">選択関数</param>
-		/// <returns>目的の値に最も近い値</returns>
 		public static int NearestOrDefault<TSource>
 		(
 			this IEnumerable<TSource> self,
@@ -111,12 +96,8 @@ namespace Kogane
 		// FindNearestOrDefault
 		//================================================================================
 		/// <summary>
-		/// 目的の値に最も近い値を持つ要素を返します。見つからなかった場合は null を返します。
+		/// 目的の値に最も近い値を持つ要素を返します。見つからなかった場合は null を返します
 		/// </summary>
-		/// <typeparam name="TSource">要素の型</typeparam>
-		/// <param name="target">目的の値</param>
-		/// <param name="selector">選択関数</param>
-		/// <returns>目的の値に最も近い値を持つ要素</returns>
 		public static TSource FindNearestOrDefault<TSource>
 		(
 			this IEnumerable<TSource> self,
@@ -133,10 +114,8 @@ namespace Kogane
 		// NearestMoreThan
 		//================================================================================
 		/// <summary>
-		/// 目的の値に最も近く、目的の値より大きい値を返します。見つからなかった場合は例外を投げます。
+		/// 目的の値に最も近く、目的の値より大きい値を返します。見つからなかった場合は例外を投げます
 		/// </summary>
-		/// <param name="target">目的の値</param>
-		/// <returns>目的の値に最も近く、目的の値より大きい値</returns>
 		public static int NearestMoreThan
 		(
 			this IEnumerable<int> self,
@@ -149,12 +128,8 @@ namespace Kogane
 		}
 
 		/// <summary>
-		/// 目的の値に最も近く、目的の値より大きい値を返します。見つからなかった場合は例外を投げます。
+		/// 目的の値に最も近く、目的の値より大きい値を返します。見つからなかった場合は例外を投げます
 		/// </summary>
-		/// <typeparam name="TSource">要素の型</typeparam>
-		/// <param name="target">目的の値</param>
-		/// <param name="selector">選択関数</param>
-		/// <returns>目的の値に最も近く、目的の値より大きい値</returns>
 		public static int NearestMoreThan<TSource>
 		(
 			this IEnumerable<TSource> self,
@@ -171,12 +146,8 @@ namespace Kogane
 		// FindNearestMoreThan
 		//================================================================================
 		/// <summary>
-		/// 目的の値に最も近く、目的の値より大きい値を持つ要素を返します。見つからなかった場合は例外を投げます。
+		/// 目的の値に最も近く、目的の値より大きい値を持つ要素を返します。見つからなかった場合は例外を投げます
 		/// </summary>
-		/// <typeparam name="TSource">要素の型</typeparam>
-		/// <param name="target">目的の値</param>
-		/// <param name="selector">選択関数</param>
-		/// <returns>目的の値に最も近く、目的の値より大きい値を持つ要素</returns>
 		public static TSource FindNearestMoreThan<TSource>
 		(
 			this IEnumerable<TSource> self,
@@ -193,10 +164,8 @@ namespace Kogane
 		// NearestMoreThanOrDefault
 		//================================================================================
 		/// <summary>
-		/// 目的の値に最も近く、目的の値より大きい値を返します。見つからなかった場合は null を返します。
+		/// 目的の値に最も近く、目的の値より大きい値を返します。見つからなかった場合は null を返します
 		/// </summary>
-		/// <param name="target">目的の値</param>
-		/// <returns>目的の値に最も近く、目的の値より大きい値</returns>
 		public static int NearestMoreThanOrDefault
 		(
 			this IEnumerable<int> self,
@@ -209,12 +178,8 @@ namespace Kogane
 		}
 
 		/// <summary>
-		/// 目的の値に最も近く、目的の値より大きい値を返します。見つからなかった場合は null を返します。
+		/// 目的の値に最も近く、目的の値より大きい値を返します。見つからなかった場合は null を返します
 		/// </summary>
-		/// <typeparam name="TSource">要素の型</typeparam>
-		/// <param name="target">目的の値</param>
-		/// <param name="selector">選択関数</param>
-		/// <returns>目的の値に最も近く、目的の値より大きい値</returns>
 		public static int NearestMoreThanOrDefault<TSource>
 		(
 			this IEnumerable<TSource> self,
@@ -231,12 +196,8 @@ namespace Kogane
 		// FindNearestMoreThanOrDefault
 		//================================================================================
 		/// <summary>
-		/// 目的の値に最も近く、目的の値より大きい値を持つ要素を返します。見つからなかった場合は null を返します。
+		/// 目的の値に最も近く、目的の値より大きい値を持つ要素を返します。見つからなかった場合は null を返します
 		/// </summary>
-		/// <typeparam name="TSource">要素の型</typeparam>
-		/// <param name="target">目的の値</param>
-		/// <param name="selector">選択関数</param>
-		/// <returns>目的の値に最も近く、目的の値より大きい値</returns>
 		public static TSource FindNearestMoreThanOrDefault<TSource>
 		(
 			this IEnumerable<TSource> self,
@@ -253,10 +214,8 @@ namespace Kogane
 		// NearestOrLess
 		//================================================================================
 		/// <summary>
-		/// 目的の値に最も近く、目的の値以下の値を返します。見つからなかった場合は例外を投げます。
+		/// 目的の値に最も近く、目的の値以下の値を返します。見つからなかった場合は例外を投げます
 		/// </summary>
-		/// <param name="target">目的の値</param>
-		/// <returns>目的の値に最も近く、目的の値以下の値</returns>
 		public static int NearestOrLess
 		(
 			this IEnumerable<int> self,
@@ -269,12 +228,8 @@ namespace Kogane
 		}
 
 		/// <summary>
-		/// 目的の値に最も近く、目的の値以下の値を返します。見つからなかった場合は例外を投げます。
+		/// 目的の値に最も近く、目的の値以下の値を返します。見つからなかった場合は例外を投げます
 		/// </summary>
-		/// <typeparam name="TSource">要素の型</typeparam>
-		/// <param name="target">目的の値</param>
-		/// <param name="selector">選択関数</param>
-		/// <returns>目的の値に最も近く、目的の値以下の値</returns>
 		public static int NearestOrLess<TSource>
 		(
 			this IEnumerable<TSource> self,
@@ -291,12 +246,8 @@ namespace Kogane
 		// FindNearestOrLess
 		//================================================================================
 		/// <summary>
-		/// 目的の値に最も近く、目的の値以下の値を返します。見つからなかった場合は例外を投げます。
+		/// 目的の値に最も近く、目的の値以下の値を返します。見つからなかった場合は例外を投げます
 		/// </summary>
-		/// <typeparam name="TSource">要素の型</typeparam>
-		/// <param name="target">目的の値</param>
-		/// <param name="selector">選択関数</param>
-		/// <returns>目的の値に最も近く、目的の値以下の値</returns>
 		public static TSource FindNearestOrLess<TSource>
 		(
 			this IEnumerable<TSource> self,
@@ -313,10 +264,8 @@ namespace Kogane
 		// NearestOrLessOrDefault
 		//================================================================================
 		/// <summary>
-		/// 目的の値に最も近く、目的の値以下の値を返します。見つからなかった場合は null を返します。
+		/// 目的の値に最も近く、目的の値以下の値を返します。見つからなかった場合は null を返します
 		/// </summary>
-		/// <param name="target">目的の値</param>
-		/// <returns>目的の値に最も近く、目的の値以下の値</returns>
 		public static int NearestOrLessOrDefault
 		(
 			this IEnumerable<int> self,
@@ -329,12 +278,8 @@ namespace Kogane
 		}
 
 		/// <summary>
-		/// 目的の値に最も近く、目的の値以下の値を返します。見つからなかった場合は null を返します。
+		/// 目的の値に最も近く、目的の値以下の値を返します。見つからなかった場合は null を返します
 		/// </summary>
-		/// <typeparam name="TSource">要素の型</typeparam>
-		/// <param name="target">目的の値</param>
-		/// <param name="selector">選択関数</param>
-		/// <returns>目的の値に最も近く、目的の値以下の値</returns>
 		public static int NearestOrLessOrDefault<TSource>
 		(
 			this IEnumerable<TSource> self,
@@ -351,12 +296,8 @@ namespace Kogane
 		// FindNearestOrLessOrDefault
 		//================================================================================
 		/// <summary>
-		/// 目的の値に最も近く、目的の値以下の値を返します。見つからなかった場合は null を返します。
+		/// 目的の値に最も近く、目的の値以下の値を返します。見つからなかった場合は null を返します
 		/// </summary>
-		/// <typeparam name="TSource">要素の型</typeparam>
-		/// <param name="target">目的の値</param>
-		/// <param name="selector">選択関数</param>
-		/// <returns>目的の値に最も近く、目的の値以下の値</returns>
 		public static TSource FindNearestOrLessOrDefault<TSource>
 		(
 			this IEnumerable<TSource> self,
@@ -373,10 +314,8 @@ namespace Kogane
 		// NearestOrMore
 		//================================================================================
 		/// <summary>
-		/// 目的の値に最も近く、目的の値以上の値を返します。見つからなかった場合は例外を投げます。
+		/// 目的の値に最も近く、目的の値以上の値を返します。見つからなかった場合は例外を投げます
 		/// </summary>
-		/// <param name="target">目的の値</param>
-		/// <returns>目的の値に最も近く、目的の値以上の値</returns>
 		public static int NearestOrMore
 		(
 			this IEnumerable<int> self,
@@ -389,12 +328,8 @@ namespace Kogane
 		}
 
 		/// <summary>
-		/// 目的の値に最も近く、目的の値以上の値を返します。見つからなかった場合は例外を投げます。
+		/// 目的の値に最も近く、目的の値以上の値を返します。見つからなかった場合は例外を投げます
 		/// </summary>
-		/// <typeparam name="TSource">要素の型</typeparam>
-		/// <param name="target">目的の値</param>
-		/// <param name="selector">選択関数</param>
-		/// <returns>目的の値に最も近く、目的の値以上の値</returns>
 		public static int NearestOrMore<TSource>
 		(
 			this IEnumerable<TSource> self,
@@ -411,12 +346,8 @@ namespace Kogane
 		// FindNearestOrMore
 		//================================================================================
 		/// <summary>
-		/// 目的の値に最も近く、目的の値以上の値を返します。見つからなかった場合は例外を投げます。
+		/// 目的の値に最も近く、目的の値以上の値を返します。見つからなかった場合は例外を投げます
 		/// </summary>
-		/// <typeparam name="TSource">要素の型</typeparam>
-		/// <param name="target">目的の値</param>
-		/// <param name="selector">選択関数</param>
-		/// <returns>目的の値に最も近く、目的の値以上の値</returns>
 		public static TSource FindNearestOrMore<TSource>
 		(
 			this IEnumerable<TSource> self,
@@ -433,10 +364,8 @@ namespace Kogane
 		// NearestOrMoreOrDefault
 		//================================================================================
 		/// <summary>
-		/// 目的の値に最も近く、目的の値以上の値を返します。見つからなかった場合は null を返します。
+		/// 目的の値に最も近く、目的の値以上の値を返します。見つからなかった場合は null を返します
 		/// </summary>
-		/// <param name="target">目的の値</param>
-		/// <returns>目的の値に最も近く、目的の値以上の値</returns>
 		public static int NearestOrMoreOrDefault
 		(
 			this IEnumerable<int> self,
@@ -449,12 +378,8 @@ namespace Kogane
 		}
 
 		/// <summary>
-		/// 目的の値に最も近く、目的の値以上の値を返します。見つからなかった場合は null を返します。
+		/// 目的の値に最も近く、目的の値以上の値を返します。見つからなかった場合は null を返します
 		/// </summary>
-		/// <typeparam name="TSource">要素の型</typeparam>
-		/// <param name="target">目的の値</param>
-		/// <param name="selector">選択関数</param>
-		/// <returns>目的の値に最も近く、目的の値以上の値</returns>
 		public static int NearestOrMoreOrDefault<TSource>
 		(
 			this IEnumerable<TSource> self,
@@ -471,12 +396,8 @@ namespace Kogane
 		// FindNearestOrMoreOrDefault
 		//================================================================================
 		/// <summary>
-		/// 目的の値に最も近く、目的の値以上の値を返します。見つからなかった場合は null を返します。
+		/// 目的の値に最も近く、目的の値以上の値を返します。見つからなかった場合は null を返します
 		/// </summary>
-		/// <typeparam name="TSource">要素の型</typeparam>
-		/// <param name="target">目的の値</param>
-		/// <param name="selector">選択関数</param>
-		/// <returns>目的の値に最も近く、目的の値以上の値</returns>
 		public static TSource FindNearestOrMoreOrDefault<TSource>
 		(
 			this IEnumerable<TSource> self,
@@ -493,10 +414,8 @@ namespace Kogane
 		// NearestMoreLess
 		//================================================================================
 		/// <summary>
-		/// 目的の値に最も近く、目的の値より小さい値を返します。見つからなかった場合は例外を投げます。
+		/// 目的の値に最も近く、目的の値より小さい値を返します。見つからなかった場合は例外を投げます
 		/// </summary>
-		/// <param name="target">目的の値</param>
-		/// <returns>目的の値に最も近く、目的の値より小さい値</returns>
 		public static int NearestMoreLess
 		(
 			this IEnumerable<int> self,
@@ -509,12 +428,8 @@ namespace Kogane
 		}
 
 		/// <summary>
-		/// 目的の値に最も近く、目的の値より小さい値を返します。見つからなかった場合は例外を投げます。
+		/// 目的の値に最も近く、目的の値より小さい値を返します。見つからなかった場合は例外を投げます
 		/// </summary>
-		/// <typeparam name="TSource">要素の型</typeparam>
-		/// <param name="target">目的の値</param>
-		/// <param name="selector">選択関数</param>
-		/// <returns>目的の値に最も近く、目的の値より小さい値</returns>
 		public static int NearestMoreLess<TSource>
 		(
 			this IEnumerable<TSource> self,
@@ -531,12 +446,8 @@ namespace Kogane
 		// FindNearestMoreLess
 		//================================================================================
 		/// <summary>
-		/// 目的の値に最も近く、目的の値より小さい値を持つ要素を返します。見つからなかった場合は例外を投げます。
+		/// 目的の値に最も近く、目的の値より小さい値を持つ要素を返します。見つからなかった場合は例外を投げます
 		/// </summary>
-		/// <typeparam name="TSource">要素の型</typeparam>
-		/// <param name="target">目的の値</param>
-		/// <param name="selector">選択関数</param>
-		/// <returns>目的の値に最も近く、目的の値より小さい値を持つ要素</returns>
 		public static TSource FindNearestMoreLess<TSource>
 		(
 			this IEnumerable<TSource> self,
@@ -553,10 +464,8 @@ namespace Kogane
 		// NearestMoreLessOrDefault
 		//================================================================================
 		/// <summary>
-		/// 目的の値に最も近く、目的の値より小さい値を返します。見つからなかった場合は null を返します。
+		/// 目的の値に最も近く、目的の値より小さい値を返します。見つからなかった場合は null を返します
 		/// </summary>
-		/// <param name="target">目的の値</param>
-		/// <returns>目的の値に最も近く、目的の値より小さい値</returns>
 		public static int NearestMoreLessOrDefault
 		(
 			this IEnumerable<int> self,
@@ -569,12 +478,8 @@ namespace Kogane
 		}
 
 		/// <summary>
-		/// 目的の値に最も近く、目的の値より小さい値を返します。見つからなかった場合は null を返します。
+		/// 目的の値に最も近く、目的の値より小さい値を返します。見つからなかった場合は null を返します
 		/// </summary>
-		/// <typeparam name="TSource">要素の型</typeparam>
-		/// <param name="target">目的の値</param>
-		/// <param name="selector">選択関数</param>
-		/// <returns>目的の値に最も近く、目的の値より小さい値</returns>
 		public static int NearestMoreLessOrDefault<TSource>
 		(
 			this IEnumerable<TSource> self,
@@ -591,12 +496,8 @@ namespace Kogane
 		// FindNearestMoreLessOrDefault
 		//================================================================================
 		/// <summary>
-		/// 目的の値に最も近く、目的の値より小さい値を持つ要素を返します。見つからなかった場合は null を返します。
+		/// 目的の値に最も近く、目的の値より小さい値を持つ要素を返します。見つからなかった場合は null を返します
 		/// </summary>
-		/// <typeparam name="TSource">要素の型</typeparam>
-		/// <param name="target">目的の値</param>
-		/// <param name="selector">選択関数</param>
-		/// <returns>目的の値に最も近く、目的の値より小さい値を持つ要素</returns>
 		public static TSource FindNearestMoreLessOrDefault<TSource>
 		(
 			this IEnumerable<TSource> self,
