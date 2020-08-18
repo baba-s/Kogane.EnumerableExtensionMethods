@@ -28,5 +28,14 @@ namespace Kogane
 
 			return array;
 		}
+
+		/// <summary>
+		/// 指定された条件を満たす場合、要素の順序を反転させます
+		/// </summary>
+		public static void ReverseIf<T>( this T[] self, bool condition )
+		{
+			if ( !condition ) return;
+			Array.Reverse( self );
+		}
 	}
 }

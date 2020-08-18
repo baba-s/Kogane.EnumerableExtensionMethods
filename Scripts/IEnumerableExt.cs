@@ -322,5 +322,16 @@ namespace Kogane
 				self = self.Skip( size );
 			}
 		}
+		
+		//================================================================================
+		// ReverseIf
+		//================================================================================
+		/// <summary>
+		/// 指定された条件を満たす場合にシーケンスの要素の順序を反転させます
+		/// </summary>
+		public static IEnumerable<T> ReverseIf<T>( this IEnumerable<T> self, bool condition )
+		{
+			return condition ? self.Reverse() : self;
+		}
 	}
 }
