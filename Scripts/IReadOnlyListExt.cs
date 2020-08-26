@@ -136,5 +136,60 @@ namespace Kogane
 		{
 			return self.Find( c => selector( c ) == self.Max( selector ) );
 		}
+
+		//================================================================================
+		// TryFind, TryFindLast
+		//================================================================================
+		/// <summary>
+		/// 指定された述語によって定義された条件と一致する要素を検索し、
+		/// List&lt;T&gt; 全体の中で最もインデックス番号の小さい要素を返します
+		/// </summary>
+		public static bool TryFind<T>
+		(
+			this IReadOnlyList<T> self,
+			Predicate<T>          match,
+			out T                 result
+		) where T : class
+		{
+			result = null;
+
+			for ( var i = 0; i < self.Count; i++ )
+			{
+				var item = self[ i ];
+				if ( match( item ) )
+				{
+					result = item;
+					break;
+				}
+			}
+
+			return result != null;
+		}
+
+		/// <summary>
+		/// 指定された述語によって定義された条件と一致する要素を、
+		/// List&lt;T&gt; 全体を対象に検索し、最もインデックス番号の大きい要素を返します
+		/// </summary>
+		public static bool TryFindLast<T>
+		(
+			this IReadOnlyList<T> self,
+			Predicate<T>          match,
+			out T                 result
+		) where T : class
+		{
+			result = null;
+
+			for ( var i = self.Count - 1; i >= 0; i-- )
+			{
+				var item = self[ i ];
+				if ( match( item ) )
+				{
+					result = item;
+					break;
+				}
+			}
+
+			return result != null;
+		}
 	}
 }
