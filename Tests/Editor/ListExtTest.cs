@@ -28,16 +28,24 @@ namespace Kogane.Test
 		public void TryFind()
 		{
 			var exists = m_characters.TryFind( x => x.Id == 1, out var result );
-			Assert.True( exists );
+			Assert.IsTrue( exists );
 			Assert.AreEqual( "フシギダネ", result.Name );
+			
+			var exists2 = m_characters.TryFind( x => x.Id == 2, out var result2 );
+			Assert.IsFalse( exists2 );
+			Assert.IsNull( result2 );
 		}
 
 		[Test]
 		public void TryFindLast()
 		{
 			var exists = m_characters.TryFindLast( x => x.Id == 1, out var result );
-			Assert.True( exists );
+			Assert.IsTrue( exists );
 			Assert.AreEqual( "フシギバナ", result.Name );
+			
+			var exists2 = m_characters.TryFindLast( x => x.Id == 2, out var result2 );
+			Assert.IsFalse( exists2 );
+			Assert.IsNull( result2 );
 		}
 	}
 }
