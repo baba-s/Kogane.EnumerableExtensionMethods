@@ -1,12 +1,13 @@
 ﻿using NUnit.Framework;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Kogane.Test
 {
 	internal class IListExtTest
 	{
-		private int[]  m_source     = { 0, 1, 2, 3, 4, };
-		private uint[] m_sourceUint = { 0, 1, 2, 3, 4, };
+		private IReadOnlyList<int>  m_source     = new[] { 0, 1, 2, 3, 4, };
+		private IReadOnlyList<uint> m_sourceUint = new uint[] { 0, 1, 2, 3, 4, };
 
 		[Test]
 		public void ElementAt()
