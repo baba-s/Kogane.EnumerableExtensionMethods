@@ -1,8 +1,8 @@
 {
-    "name": "com.baba-s.uni-enumerable-extension-methods",
-    "displayName": "UniEnumerableExtensionMethods",
+    "name": "com.baba-s.kogane-enumerable-extension-methods",
+    "displayName": "Kogane Enumerable Extension Methods",
     "version": "1.0.0",
-    "unity": "2019.2",
+    "unity": "2022.1",
     "author": "baba-s",
     "description": "",
     "dependencies": {}

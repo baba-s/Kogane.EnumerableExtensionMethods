@@ -1,5 +1,6 @@
 {
-    "name": "UniEnumerableExtensionMethods.Editor.Tests",
+    "name": "Kogane.EnumerableExtensionMethods.Editor.Tests",
+    "rootNamespace": "",
     "references": [
         "GUID:1e9d1e2e10e566a4c8666ab2237a80b5"
     ],
@@ -13,5 +14,5 @@
     "autoReferenced": false,
     "defineConstraints": [],
     "versionDefines": [],
-    "noEngineReferences": false
+    "noEngineReferences": true
 }
