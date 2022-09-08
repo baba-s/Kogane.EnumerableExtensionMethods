@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
 
@@ -34,7 +35,7 @@ namespace Kogane.Test
         public void FirstOrDefault()
         {
             Assert.AreEqual( 0, m_source.FirstOrDefault() );
-            Assert.AreEqual( 5, new int[ 0 ].FirstOrDefault( 5 ) );
+            Assert.AreEqual( 5, Array.Empty<int>().FirstOrDefault( 5 ) );
             Assert.AreEqual( 2, m_source.FirstOrDefault( x => x == 2 ) );
             Assert.AreEqual( 0, m_source.FirstOrDefault( x => x == 5 ) );
             Assert.AreEqual( 5, m_source.FirstOrDefault( x => x == 5, 5 ) );
@@ -51,7 +52,7 @@ namespace Kogane.Test
         public void LastOrDefault()
         {
             Assert.AreEqual( 4, m_source.LastOrDefault() );
-            Assert.AreEqual( 5, new int[ 0 ].LastOrDefault( 5 ) );
+            Assert.AreEqual( 5, Array.Empty<int>().LastOrDefault( 5 ) );
             Assert.AreEqual( 2, m_source.LastOrDefault( x => x == 2 ) );
             Assert.AreEqual( 0, m_source.LastOrDefault( x => x == 5 ) );
             Assert.AreEqual( 5, m_source.LastOrDefault( x => x == 5, 5 ) );
@@ -151,7 +152,7 @@ namespace Kogane.Test
             Assert.IsTrue( m_source.All( x => 0 <= x ) );
             Assert.IsFalse( m_source.All( x => 1 <= x ) );
 
-            var empty = new int[ 0 ];
+            var empty = Array.Empty<int>();
             Assert.IsTrue( empty.All( x => 0 <= x ) );
         }
 
@@ -162,7 +163,7 @@ namespace Kogane.Test
             Assert.IsTrue( m_source.Any( x => x == 2 ) );
             Assert.IsFalse( m_source.Any( x => x == 5 ) );
 
-            var empty = new int[ 0 ];
+            var empty = Array.Empty<int>();
             Assert.IsFalse( empty.Any() );
         }
 
@@ -229,9 +230,9 @@ namespace Kogane.Test
         {
             var result1 = m_source.DefaultIfEmpty();
             Assert.IsTrue( result1.SequenceEqual( new[] { 0, 1, 2, 3, 4 } ) );
-            var result2 = new int[ 0 ].DefaultIfEmpty();
+            var result2 = Array.Empty<int>().DefaultIfEmpty();
             Assert.IsTrue( result2.SequenceEqual( new[] { 0 } ) );
-            var result3 = new int[ 0 ].DefaultIfEmpty( 5 );
+            var result3 = Array.Empty<int>().DefaultIfEmpty( 5 );
             Assert.IsTrue( result3.SequenceEqual( new[] { 5 } ) );
         }
 
