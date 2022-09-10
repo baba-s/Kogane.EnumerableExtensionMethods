@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 namespace Kogane
@@ -332,6 +333,52 @@ namespace Kogane
         public static IEnumerable<T> ReverseIf<T>( this IEnumerable<T> self, bool condition )
         {
             return condition ? self.Reverse() : self;
+        }
+
+        //================================================================================
+        // Peek
+        //================================================================================
+        public static IEnumerable<T> Peek<T>
+        (
+            [NotNull] this IEnumerable<T> source,
+            [NotNull]      Action<T>      action
+        )
+        {
+            if ( source == null ) throw new ArgumentNullException( nameof( source ) );
+            if ( action == null ) throw new ArgumentNullException( nameof( action ) );
+
+            IEnumerable<T> Iterator()
+            {
+                foreach ( var x in source )
+                {
+                    action( x );
+                    yield return x;
+                }
+            }
+
+            return Iterator();
+        }
+
+        public static IEnumerable<T> PeekMany<T>
+        (
+            [NotNull] this IEnumerable<T>         source,
+            [NotNull]      Action<IEnumerable<T>> action
+        )
+        {
+            if ( source == null ) throw new ArgumentNullException( nameof( source ) );
+            if ( action == null ) throw new ArgumentNullException( nameof( action ) );
+
+            IEnumerable<T> Iterator()
+            {
+                action( source );
+
+                foreach ( var x in source )
+                {
+                    yield return x;
+                }
+            }
+
+            return Iterator();
         }
     }
 }
