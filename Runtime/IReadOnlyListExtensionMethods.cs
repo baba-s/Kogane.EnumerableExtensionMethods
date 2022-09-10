@@ -111,7 +111,7 @@ namespace Kogane
         /// </summary>
         public static T FindMin<T>( this IReadOnlyList<T> self, Func<T, int> selector )
         {
-            return self.Find( x => selector( x ) == self.Min( selector ) );
+            return self.FirstOrDefault( x => selector( x ) == self.Min( selector ) );
         }
 
         /// <summary>
@@ -119,7 +119,7 @@ namespace Kogane
         /// </summary>
         public static T FindMin<T>( this IReadOnlyList<T> self, Func<T, uint> selector )
         {
-            return self.Find( x => selector( x ) == self.Min( selector ) );
+            return self.FirstOrDefault( x => selector( x ) == self.Min( selector ) );
         }
 
         /// <summary>
@@ -127,7 +127,7 @@ namespace Kogane
         /// </summary>
         public static T FindMax<T>( this IReadOnlyList<T> self, Func<T, int> selector )
         {
-            return self.Find( x => selector( x ) == self.Max( selector ) );
+            return self.FirstOrDefault( x => selector( x ) == self.Max( selector ) );
         }
 
         /// <summary>
@@ -135,7 +135,7 @@ namespace Kogane
         /// </summary>
         public static T FindMax<T>( this IReadOnlyList<T> self, Func<T, uint> selector )
         {
-            return self.Find( x => selector( x ) == self.Max( selector ) );
+            return self.FirstOrDefault( x => selector( x ) == self.Max( selector ) );
         }
 
         //================================================================================
