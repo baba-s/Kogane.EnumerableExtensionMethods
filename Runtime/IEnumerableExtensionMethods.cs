@@ -380,5 +380,33 @@ namespace Kogane
 
             return Iterator();
         }
+
+        //================================================================================
+        // TryElementAt
+        //================================================================================
+        public static bool TryElementAt<TSource>
+        (
+            this IEnumerable<TSource> source,
+            int                       index,
+            out TSource               result
+        )
+        {
+            if ( source == null ) throw new ArgumentNullException( nameof( source ) );
+
+            var i = 0;
+            foreach ( var element in source )
+            {
+                if ( i == index )
+                {
+                    result = element;
+                    return true;
+                }
+
+                i++;
+            }
+
+            result = default;
+            return false;
+        }
     }
 }
