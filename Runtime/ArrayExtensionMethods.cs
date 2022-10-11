@@ -14,19 +14,27 @@ namespace Kogane
         /// <summary>
         /// ランダムに並び替えます
         /// </summary>
-        public static T[] Shuffle<T>( this T[] array )
+        public static T[] Shuffle<T>( this T[] self )
         {
-            var n = array.Length;
+            var n = self.Length;
             while ( 1 < n )
             {
                 n--;
                 var k   = Random.Next( n + 1 );
-                var tmp = array[ k ];
-                array[ k ] = array[ n ];
-                array[ n ] = tmp;
+                var tmp = self[ k ];
+                self[ k ] = self[ n ];
+                self[ n ] = tmp;
             }
 
-            return array;
+            return self;
+        }
+
+        /// <summary>
+        /// 指定された条件を満たす場合、ランダムに並び替えます
+        /// </summary>
+        public static T[] ShuffleIf<T>( this T[] self, bool condition )
+        {
+            return !condition ? self : self.Shuffle();
         }
 
         /// <summary>
