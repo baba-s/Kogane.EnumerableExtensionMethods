@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Kogane
 {
@@ -12,7 +13,15 @@ namespace Kogane
         // 関数(static)
         //================================================================================
         /// <summary>
-        /// ランダムに並び替えます
+        /// ランダムに並び替えます（非破壊的メソッド）
+        /// </summary>
+        public static T[] ShuffleSafe<T>( this T[] self )
+        {
+            return self.ToArray().Shuffle();
+        }
+
+        /// <summary>
+        /// ランダムに並び替えます（破壊的メソッド）
         /// </summary>
         public static T[] Shuffle<T>( this T[] self )
         {
@@ -30,7 +39,15 @@ namespace Kogane
         }
 
         /// <summary>
-        /// 指定された条件を満たす場合、ランダムに並び替えます
+        /// 指定された条件を満たす場合、ランダムに並び替えます（非破壊的メソッド）
+        /// </summary>
+        public static T[] ShuffleIfSafe<T>( this T[] self, bool condition )
+        {
+            return self.ToArray().ShuffleIf( condition );
+        }
+
+        /// <summary>
+        /// 指定された条件を満たす場合、ランダムに並び替えます（破壊的メソッド）
         /// </summary>
         public static T[] ShuffleIf<T>( this T[] self, bool condition )
         {
@@ -38,7 +55,15 @@ namespace Kogane
         }
 
         /// <summary>
-        /// 指定された条件を満たす場合、要素の順序を反転させます
+        /// 指定された条件を満たす場合、要素の順序を反転させます（非破壊的メソッド）
+        /// </summary>
+        public static T[] ReverseIfSafe<T>( this T[] self, bool condition )
+        {
+            return self.ToArray().ReverseIfSafe( condition );
+        }
+
+        /// <summary>
+        /// 指定された条件を満たす場合、要素の順序を反転させます（破壊的メソッド）
         /// </summary>
         public static T[] ReverseIf<T>( this T[] self, bool condition )
         {
