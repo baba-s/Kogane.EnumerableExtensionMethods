@@ -121,5 +121,15 @@ namespace Kogane
             result = self.FindLast( match );
             return result != null;
         }
+
+        /// <summary>
+        /// List&lt;T&gt; 内の要素をランダムに返して List&lt;T&gt; からは削除します
+        /// </summary>
+        public static T RemoveAtRandom<T>( this List<T> self )
+        {
+            var element = self.ElementAtRandom();
+            self.Remove( element );
+            return element;
+        }
     }
 }

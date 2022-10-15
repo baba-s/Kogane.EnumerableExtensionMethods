@@ -19,9 +19,9 @@ namespace Kogane.Test
 
         private readonly List<Character> m_characters = new()
         {
-            new Character( 1, "フシギダネ" ),
-            new Character( 1, "フシギソウ" ),
-            new Character( 1, "フシギバナ" ),
+            new( 1, "フシギダネ" ),
+            new( 1, "フシギソウ" ),
+            new( 1, "フシギバナ" ),
         };
 
         [Test]
