@@ -408,5 +408,26 @@ namespace Kogane
             result = default;
             return false;
         }
+
+        //================================================================================
+        // WithIsLast
+        //================================================================================
+        public static IEnumerable<(T value, bool isLast)> WithIsLast<T>( this IEnumerable<T> source )
+        {
+            if ( source == null ) throw new ArgumentNullException( nameof( source ) );
+
+            IEnumerable<(T value, bool isLast)> Iterator()
+            {
+                var array = source.ToArray();
+                var count = array.Length;
+
+                for ( var i = 0; i < array.Length; i++ )
+                {
+                    yield return ( array[ i ], i + 1 == count );
+                }
+            }
+
+            return Iterator();
+        }
     }
 }
