@@ -429,5 +429,13 @@ namespace Kogane
 
             return Iterator();
         }
+
+        //================================================================================
+        // AppendIf
+        //================================================================================
+        public static IEnumerable<T> AppendIf<T>( this IEnumerable<T> self, bool conditional, T element )
+        {
+            return conditional ? self.Append( element ) : self;
+        }
     }
 }
