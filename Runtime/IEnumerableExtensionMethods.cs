@@ -286,6 +286,14 @@ namespace Kogane
             return self.Concat( new[] { second } );
         }
 
+        /// <summary>
+        /// 2 つのシーケンスを連結します
+        /// </summary>
+        public static IEnumerable<TSource> Concat<TSource>( this IEnumerable<TSource> self, params TSource[] second )
+        {
+            return Enumerable.Concat( self, second );
+        }
+
         //================================================================================
         // RandomAtWeight
         //================================================================================
