@@ -29,9 +29,21 @@ namespace Kogane
         /// </summary>
         public static T ElementAtRandom<T>( this IEnumerable<T> self )
         {
-            return self.Any()
-                    ? self.ElementAt( Random.Next( self.Count() ) )
+            var enumerable = self as T[] ?? self.ToArray();
+            return enumerable.Any()
+                    ? enumerable.ElementAt( Random.Next( enumerable.Count() ) )
                     : default
+                ;
+        }
+
+        /// <summary>
+        /// シーケンス内の要素をランダムに返します
+        /// </summary>
+        public static T ElementAtRandom<T>( this IEnumerable<T> self, Func<T, bool> predicate )
+        {
+            return self
+                    .Where( predicate )
+                    .ElementAtRandom()
                 ;
         }
 

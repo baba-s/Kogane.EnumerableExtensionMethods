@@ -192,5 +192,18 @@ namespace Kogane
 
             return result != null;
         }
+
+        //================================================================================
+        // ElementAtOrDefault
+        //================================================================================
+        public static T ElementAtOrDefault<T>( this IReadOnlyList<T> self, int index )
+        {
+            return 0 <= index && index < self.Count ? self[ index ] : default;
+        }
+
+        public static T ElementAtOrDefault<T>( this IReadOnlyList<T> self, int index, T defaultValue )
+        {
+            return 0 <= index && index < self.Count ? self[ index ] : defaultValue;
+        }
     }
 }
