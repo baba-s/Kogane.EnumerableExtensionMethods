@@ -205,5 +205,27 @@ namespace Kogane
         {
             return 0 <= index && index < self.Count ? self[ index ] : defaultValue;
         }
+
+        //================================================================================
+        // ShuffleIfSafe
+        //================================================================================
+        /// <summary>
+        /// ランダムに並び替えます（非破壊的メソッド）
+        /// </summary>
+        public static T[] ShuffleSafe<T>( this IReadOnlyList<T> self )
+        {
+            return self.ToArray().Shuffle();
+        }
+
+        //================================================================================
+        // ShuffleIfSafe
+        //================================================================================
+        /// <summary>
+        /// 指定された条件を満たす場合、ランダムに並び替えます（非破壊的メソッド）
+        /// </summary>
+        public static T[] ShuffleIfSafe<T>( this IReadOnlyList<T> self, bool condition )
+        {
+            return self.ToArray().ShuffleIf( condition );
+        }
     }
 }

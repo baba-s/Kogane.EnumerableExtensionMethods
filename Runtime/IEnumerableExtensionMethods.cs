@@ -39,11 +39,34 @@ namespace Kogane
         /// <summary>
         /// シーケンス内の要素をランダムに返します
         /// </summary>
+        public static T ElementAtRandom<T>( this IEnumerable<T> self, T defaultValue )
+        {
+            var enumerable = self as T[] ?? self.ToArray();
+            return enumerable.Any()
+                    ? enumerable.ElementAt( Random.Next( enumerable.Count() ) )
+                    : defaultValue
+                ;
+        }
+
+        /// <summary>
+        /// シーケンス内の要素をランダムに返します
+        /// </summary>
         public static T ElementAtRandom<T>( this IEnumerable<T> self, Func<T, bool> predicate )
         {
             return self
                     .Where( predicate )
                     .ElementAtRandom()
+                ;
+        }
+
+        /// <summary>
+        /// シーケンス内の要素をランダムに返します
+        /// </summary>
+        public static T ElementAtRandom<T>( this IEnumerable<T> self, Func<T, bool> predicate, T defaultValue )
+        {
+            return self
+                    .Where( predicate )
+                    .ElementAtRandom( defaultValue )
                 ;
         }
 
@@ -456,6 +479,48 @@ namespace Kogane
         public static IEnumerable<T> AppendIf<T>( this IEnumerable<T> self, bool conditional, T element )
         {
             return conditional ? self.Append( element ) : self;
+        }
+
+        //================================================================================
+        // SequenceEqualAllowedNull
+        //================================================================================
+        public static bool SequenceEqualAllowedNull<TSource>
+        (
+            this IEnumerable<TSource> self,
+            IEnumerable<TSource>      second
+        )
+        {
+            return self switch
+            {
+                null when second == null => true,
+                null                     => false,
+                _                        => second != null && self.SequenceEqual( second )
+            };
+        }
+
+        //================================================================================
+        // MaxOrMin
+        //================================================================================
+        public static int MaxOrMin( this IEnumerable<int> self, bool isLarge )
+        {
+            return isLarge ? self.Max() : self.Min();
+        }
+
+        public static IEnumerable<T> EmptyIfNull<T>( this IEnumerable<T> self )
+        {
+            return self ?? Array.Empty<T>();
+        }
+
+        public static IEnumerable<T> ConcatIfNotNull<T>
+        (
+            this IEnumerable<T> self,
+            IEnumerable<T>      second
+        )
+        {
+            return second != null
+                    ? self.Concat( second )
+                    : self
+                ;
         }
     }
 }

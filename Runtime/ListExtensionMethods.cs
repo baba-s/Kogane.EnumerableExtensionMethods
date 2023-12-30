@@ -50,6 +50,15 @@ namespace Kogane
         }
 
         /// <summary>
+        /// すべての要素を削除して、指定したコレクションの要素を追加します
+        /// </summary>
+        public static void SetIf<T>( this List<T> list, bool condition, params T[] collection )
+        {
+            if ( !condition ) return;
+            list.Set( collection );
+        }
+
+        /// <summary>
         /// 指定した Comparison&lt;T&gt; を使用して要素を並べ替えます
         /// </summary>
         public static void Sort<T>( this List<T> self, Comparison<T> comparison )
@@ -130,6 +139,18 @@ namespace Kogane
             var element = self.ElementAtRandom();
             self.Remove( element );
             return element;
+        }
+
+        public static void ClearIf<T>( this List<T> self, bool condition )
+        {
+            if ( !condition ) return;
+            self.Clear();
+        }
+
+        public static void AddIf<T>( this List<T> self, bool condition, T item )
+        {
+            if ( !condition ) return;
+            self.Add( item );
         }
     }
 }
